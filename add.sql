@@ -129,3 +129,9 @@ ALTER TABLE `user` ADD `access_token` VARCHAR(500) NULL DEFAULT NULL AFTER `addr
 ALTER TABLE `user` ADD `expire_at` INT NOT NULL AFTER `access_token`;
 
 ALTER TABLE `pages` ADD `school_key` VARCHAR(50) NOT NULL DEFAULT 'jaras' AFTER `text`;
+
+
+CREATE TABLE `job`.`connect_us` ( `id` INT NOT NULL , `school_key` VARCHAR(50) NOT NULL , `phone` VARCHAR(50) NOT NULL , `email` VARCHAR(100) NOT NULL , `facebook` VARCHAR(200) NOT NULL , `youtube` VARCHAR(200) NOT NULL , `twitter` VARCHAR(200) NOT NULL , `address` VARCHAR(500) NOT NULL , `location` TINYTEXT NOT NULL , `created_at` DATETIME NOT NULL , `updated_at` DATETIME NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+ALTER TABLE `connect_us` CHANGE `phone` `phone` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, CHANGE `address` `address` VARCHAR(500) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+ALTER TABLE `connect_us` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCREMENT;

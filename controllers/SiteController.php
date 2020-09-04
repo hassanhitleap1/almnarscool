@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\ConnectUs;
 use app\models\Forgot_Password;
 use app\models\ForgotPassword;
 use app\models\NewPassword;
@@ -195,6 +196,18 @@ class SiteController extends Controller
         return $this->render('about',['page'=>$page]);
     }
 
+
+        /**
+     * Displays about page.
+     *
+     * @return string
+     */
+    public function actionConnectUs()
+    {
+        $this->layout = "maintheme";
+        $model=ConnectUs::find()->where(["school_key"=>Yii::$app->params['school_key']])->one();
+        return $this->render('connect-us',['model'=>$model]);
+    }
     
     /**
      * Displays about page.

@@ -8,9 +8,7 @@ use app\widgets\Alert;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
-use lo\modules\noty\Wrapper;
 
 AppAsset::register($this);
 ?>
@@ -82,6 +80,9 @@ AppAsset::register($this);
                         ['label' => Yii::t('app', 'Educational_Attainment'), 'url' => ['/educational-attainment/index']],
                         ['label' => Yii::t('app', 'Specialties'), 'url' => ['/specialties/index']],
                         ['label' => Yii::t('app', 'School_Owners'), 'url' => ['/school-owners/index']],
+                        
+
+                        
                     ],
                 ];
 
@@ -114,6 +115,7 @@ AppAsset::register($this);
                         ['label' => Yii::t('app', 'Requast_Job_Not_Pay'), 'url' => ['/requast-job-not-pay/index']]
                     ],
                 ];
+                $menuItems[] = ['label' => Yii::t('app', 'Connect_Us'), 'url' => ['/connect-us/index']];
                 $menuItems[] = ['label' => Yii::t('app', 'Message'), 'url' => ['/user-message-whatsapp/index']];
                 $menuItems[] = ['label' => Yii::t('app', 'Change_Password'), 'url' => ['/change-password/index']];
             }elseif (Yii::$app->user->identity->type == User::NORMAL_ADMIN){
@@ -142,6 +144,7 @@ AppAsset::register($this);
             }elseif (Yii::$app->user->identity->type == User::MERCHANT_USER){
                 $menuItems[] = ['label' => Yii::t('app', 'Requast_Job_Form'), 'url' => ['/users/index']];
                 $menuItems[] = ['label' => Yii::t('app', 'Change_Password'), 'url' => ['/change-password/index']];
+                $menuItems[] = ['label' => Yii::t('app', 'Connect_Us'), 'url' => ['/connect-us/index']];
             }else{
                 $menuItems[] = ['label' => Yii::t('app', 'Upload_Vedio'), 'url' => ['/upload-vedio/index']];
                 $menuItems[] = ['label' => Yii::t('app', 'My_Request'), 'url' => ['/my-request/index']];
