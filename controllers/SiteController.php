@@ -204,7 +204,7 @@ class SiteController extends Controller
     public function actionOurVision()
     {
         $this->layout = "maintheme";
-        $page=Pages::find()->where(['key'=>'our-vision'])->one();
+        $page=Pages::find()->where(['key'=>'our-vision'])->andWhere(['school_key'=>Yii::$app->params['school_key']])->one();
         return $this->render('our-vision',['page'=>$page]);
     }
 
@@ -216,7 +216,7 @@ class SiteController extends Controller
     public function actionOurMessage()
     {
         $this->layout = "maintheme";
-        $page=Pages::find()->where(['key'=>'our-message'])->one();
+        $page=Pages::find()->where(['key'=>'our-message'])->andWhere(['school_key'=>Yii::$app->params['school_key']])->one();
         return $this->render('our-message',['page'=>$page]);
     }
       /**
@@ -227,7 +227,7 @@ class SiteController extends Controller
     public function actionOurGoals()
     {
         $this->layout = "maintheme";
-        $page=Pages::find()->where(['key'=>'our-goals'])->one();
+        $page=Pages::find()->where(['key'=>'our-goals'])->andWhere(['school_key'=>Yii::$app->params['school_key']])->one();
         return $this->render('our-goals',['page'=>$page]);
     }
       /**
@@ -238,7 +238,7 @@ class SiteController extends Controller
     public function actionGrowthStrategies()
     {
         $this->layout = "maintheme";
-        $page=Pages::find()->where(['key'=>'growth-strategies'])->one();
+        $page=Pages::find()->where(['key'=>'growth-strategies'])->andWhere(['school_key'=>Yii::$app->params['school_key']])->one();
         return $this->render('growth-strategies',['page'=>$page]);
     }
 
@@ -250,7 +250,7 @@ class SiteController extends Controller
     public function actionRateUs()
     {
         $this->layout = "maintheme";
-        $page=Pages::find()->where(['key'=>'rate-us'])->one();
+        $page=Pages::find()->where(['key'=>'rate-us'])->andWhere(['school_key'=>Yii::$app->params['school_key']])->one();
         return $this->render('rate-us',['page'=>$page]);
     }
 
@@ -263,7 +263,7 @@ class SiteController extends Controller
     public function actionOurResponsibility()
     {
         $this->layout = "maintheme";
-        $page=Pages::find()->where(['key'=>'our-responsibility'])->one();
+        $page=Pages::find()->where(['key'=>'our-responsibility'])->andWhere(['school_key'=>Yii::$app->params['school_key']])->one();
         return $this->render('our-responsibility',['page'=>$page]);
     }
 
@@ -275,7 +275,7 @@ class SiteController extends Controller
     public function actionPrivacyPolicy()
     {
         $this->layout = "maintheme";
-        $page=Pages::find()->where(['key'=>'privacy-policy'])->one();
+        $page=Pages::find()->where(['key'=>'privacy-policy'])->andWhere(['school_key'=>Yii::$app->params['school_key']])->one();
         return $this->render('privacy-policy',['page'=>$page]);
     }
 
@@ -287,7 +287,7 @@ class SiteController extends Controller
     public function actionTermsConditions()
     {
         $this->layout = "maintheme";
-        $page=Pages::find()->where(['key'=>'terms-conditions'])->one();
+        $page=Pages::find()->where(['key'=>'terms-conditions'])->andWhere(['school_key'=>Yii::$app->params['school_key']])->one();
         return $this->render('terms-conditions',['page'=>$page]);
     }
 
