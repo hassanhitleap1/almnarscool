@@ -22,8 +22,8 @@ AppAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="جرس لتسويق الكفاءات ">
-    <meta name="keywords" content="[jaras for job,jaras,job,جرس للخدمات,وظائف,جرس لتسويق الكفاءات,جرس">
+    <meta name="description" content="مدراس المنار">
+    <meta name="keywords" content="[مدراس المنار,jaras for job,jaras,job,جرس للخدمات,وظائف,جرس لتسويق الكفاءات,جرس">
     <?php $this->registerCsrfMetaTags() ?>
     <title> <?= Yii::$app->name . " - " . Html::encode($this->title) ?> </title>
     <?php $this->head() ?>
@@ -45,7 +45,7 @@ AppAsset::register($this);
         <?php
         NavBar::begin([
             //'brandLabel' => Html::img('@web/images/logo.svg'),
-            'brandLabel' =>'<div>'.Yii::$app->name. Html::img('@web/images/logo.svg',['class'=>'logo']).'</div>',
+            'brandLabel' =>'<div>'.Yii::$app->name. Html::img('@web/images/logo.jpg',['class'=>'logo']).'</div>',
             'brandUrl' => Yii::$app->homeUrl,
             'options' => [
                 'class' => 'navbar-inverse navbar-fixed-top',
