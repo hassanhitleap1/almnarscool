@@ -137,3 +137,4 @@ ALTER TABLE `connect_us` CHANGE `phone` `phone` VARCHAR(50) CHARACTER SET utf8 C
 ALTER TABLE `connect_us` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `schools` ADD `school_key` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'jaras' AFTER `path_logo`;
 ALTER TABLE `schools` ADD `link` VARCHAR(200) NOT NULL DEFAULT 'http://job-jaras.com/' AFTER `school_key`;
+ALTER TABLE `user` ADD `school_id` INT NOT NULL DEFAULT '1' AFTER `expire_at`;

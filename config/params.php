@@ -7,6 +7,7 @@ return [
     'senderName' => 'Example.com mailer',
     'supportEmail'=>'hr@job-jaras.com',
     "school_key"=>"jaras",
+    "school_id"=>1,
     'languages'=>[
         'ar'=>'Arabic',
         'en'=>'English'

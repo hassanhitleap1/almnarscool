@@ -4,10 +4,8 @@ namespace app\controllers;
 
 use app\models\CountSendSms;
 use app\models\Courses;
-use app\models\Degrees;
 use app\models\EducationalAttainment;
 use app\models\Experiences;
-use app\models\Governorate;
 use app\models\LoginForm;
 use app\models\Model;
 

@@ -57,14 +57,18 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <a href="<?= $model->facebook?>">
                                             <span class="fab fa-facebook-f"></span>
                                         </a>
-                                        <i class="fab fa-twitter"></i>
-                                        <i class="fab fa-youtube"></i>
-                                        <i class="fas fa-envelope-square"></i>
-                                        <i class="fas fa-map-marker-alt"></i>
-                                        <i class="fas fa-map-pin"></i>
+
                                         <a href="<?= $model->twitter?>">
-                                            <span class="fab tw"></span>
+                                            <span class="fab fa-twitter"></span>
                                         </a>
+                                        <a href="<?= $model->youtube?>">
+                                            <span class="fab fa-youtube"></span>
+                                        </a>
+
+                                        <!-- <i class="fas fa-envelope-square"></i>
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <i class="fas fa-map-pin"></i> -->
+                                       
 
                                     </h3>
                                 </div>
