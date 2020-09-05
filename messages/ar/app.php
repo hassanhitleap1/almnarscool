@@ -259,5 +259,9 @@ return [
     "Favorite"=>"المفضلين",
     "UnFavorite"=>"غير مفضلين",
     "Rate_User"=>"تقيم الشخص",
+    "Connect_Us"=>"اتصل بنا",
+    "Address"=>"العنوان",
+    "SocialMedia"=>"مواقع التواصل",
+    "Location"=>"الخريطة",
 
 ];

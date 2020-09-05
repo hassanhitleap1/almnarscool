@@ -52,6 +52,7 @@ AppAsset::register($this);
 
         if (Yii::$app->user->isGuest) {
             $menuItems[] = ['label' => Yii::t('app', 'Create_Requast_Job'), 'url' => ['/requat-job/index']];
+            $menuItems[] = ['label' => Yii::t('app', 'Connect_Us'), 'url' => ['/site/connect-us']];
             $menuItemsleft[] = ['label' => Yii::t('app', 'Login'), 'url' => ['/site/login']];
         } else {
 

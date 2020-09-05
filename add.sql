@@ -135,3 +135,5 @@ CREATE TABLE `job`.`connect_us` ( `id` INT NOT NULL , `school_key` VARCHAR(50) N
 
 ALTER TABLE `connect_us` CHANGE `phone` `phone` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL, CHANGE `address` `address` VARCHAR(500) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
 ALTER TABLE `connect_us` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `schools` ADD `school_key` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'jaras' AFTER `path_logo`;
+ALTER TABLE `schools` ADD `link` VARCHAR(200) NOT NULL DEFAULT 'http://job-jaras.com/' AFTER `school_key`;
