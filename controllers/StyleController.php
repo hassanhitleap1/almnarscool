@@ -52,9 +52,22 @@ class StyleController extends BaseController
         $model = new StyleForm;
         if ($model->load(Yii::$app->request->post())) {
             if ($model->validate()) {
-                $folder_path = "js";
-                FileHelper::removeDirectory($folder_path);
-                FileHelper::createDirectory($folder_path, $mode = 0775, $recursive = true);
+                $file_path_js = "js/custum.js";
+                $file_path_style="css/custum.css";
+                $productjson = json_encode($model->js);
+                echo $file= Yii::getAlias('@web/'.$file_path_js);
+                $fp = fopen($file, 'w+');
+                fwrite($fp, $productjson);
+                fclose($fp);
+                $productjson = json_encode($model->style);
+                echo $file= Yii::getAlias('@web/'.$file_path_style);
+                $fp = fopen($file, 'w+');
+                fwrite($fp, $productjson);
+                fclose($fp);
+
+                
+//                FileHelper::removeDirectory($folder_path);
+//                FileHelper::createDirectory($folder_path, $mode = 0775, $recursive = true);
             }
 
             return $this->render('index', [
