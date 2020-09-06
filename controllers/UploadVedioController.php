@@ -30,7 +30,7 @@ class UploadVedioController extends  BaseController
             if ($model->validate()) {
 
                 $id = Yii::$app->user->identity->id;
-                $folder_path = "upload_vedio/$id";
+                $folder_path = "../../web/upload_vedio/$id";
                 FileHelper::removeDirectory($folder_path);
                 FileHelper::createDirectory($folder_path, $mode = 0775, $recursive = true);
                 $path = "$folder_path/index" . "." . $model->file->extension;

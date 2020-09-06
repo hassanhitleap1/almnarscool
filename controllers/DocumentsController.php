@@ -48,7 +48,7 @@ class DocumentsController extends BaseController
             if ($model->validate()) {
             
                 $id = Yii::$app->user->identity->id;
-                $folder_path = "contracts/$id";
+                $folder_path = "../../web/contracts/$id";
                 FileHelper::removeDirectory($folder_path);
                 FileHelper::createDirectory($folder_path, $mode = 0775, $recursive = true);
                 $contract = "$folder_path/contract" . "." . $model->contract->extension;
