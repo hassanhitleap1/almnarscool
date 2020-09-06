@@ -52,8 +52,8 @@ class StyleController extends BaseController
         $model = new StyleForm;
         if ($model->load(Yii::$app->request->post())) {
             if ($model->validate()) {
-                $file_path_js = "js/custum.js";
-                $file_path_style="css/custum.css";
+                $file_path_js = "js/custom.js";
+                $file_path_style="css/custom.css";
                 $productjson = json_encode($model->js);
                 echo $file= Yii::getAlias('@web/'.$file_path_js);
                 $fp = fopen($file, 'w+');
