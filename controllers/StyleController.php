@@ -64,7 +64,7 @@ class StyleController extends BaseController
                 $fp = fopen($file, 'w+');
                 fwrite($fp, $productjson);
                 fclose($fp);
-
+                
                 
 //                FileHelper::removeDirectory($folder_path);
 //                FileHelper::createDirectory($folder_path, $mode = 0775, $recursive = true);
