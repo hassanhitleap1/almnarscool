@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\ImagesSchool;
+use Carbon\Carbon;
 use Yii;
 use app\models\Schools;
 use app\models\SchoolsSearch;
@@ -139,7 +140,21 @@ class SchoolsController extends BaseController
                         $i++;
                     }
                 }
-               
+            $date=Carbon::now('Amman/jordan');
+             
+            $data=[
+                'key'=>"",
+                'title'=>"  ",
+                'text'=>" ",
+                'school_key'=>Yii::$app->params['school_key'],
+                'created_at'=>$date,
+                'updated_at'=>$date
+            ];
+            Yii::$app->db
+                ->createCommand()
+                ->batchInsert('pages', ['key', 'title', 'text', 'school_key', 'created_at', 'updated_at'], $data)
+                ->execute();
+
                 $model->save();
                 return $this->redirect(['view', 'id' => $model->id]);
         

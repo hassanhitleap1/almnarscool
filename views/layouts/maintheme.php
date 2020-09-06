@@ -52,7 +52,7 @@ AppAsset::register($this);
 
         if (Yii::$app->user->isGuest) {
             $menuItems[] = ['label' => Yii::t('app', 'Create_Requast_Job'), 'url' => ['/requat-job/index']];
-            $menuItems[] = ['label' => Yii::t('app', 'Details'), 'url' => ['/school/single-page','id'=>2]];
+            $menuItems[] = ['label' => Yii::t('app', 'Details'), 'url' => ['/school/single-page','id'=>Yii::$app->params['school_id']]];
             $menuItems[] = ['label' => Yii::t('app', 'Connect_Us'), 'url' => ['/site/connect-us']];
             $menuItemsleft[] = ['label' => Yii::t('app', 'Login'), 'url' => ['/site/login']];
         } else {
