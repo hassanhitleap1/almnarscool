@@ -141,16 +141,24 @@ class SchoolsController extends BaseController
                     }
                 }
             $date=Carbon::now('Amman/jordan');
-
-            $data[]=['key'=>"about",'title'=>"  ",'text'=>" ",'school_key'=>Yii::$app->params['school_key'],'created_at'=>$date,'updated_at'=>$date];
-            $data[]=['key'=>"our-vision",'title'=>"  ",'text'=>" ",'school_key'=>Yii::$app->params['school_key'],'created_at'=>$date,'updated_at'=>$date];
-            $data[]=['key'=>"our-message",'title'=>"  ",'text'=>" ",'school_key'=>Yii::$app->params['school_key'],'created_at'=>$date,'updated_at'=>$date];
-            $data[]=['key'=>"our-goals",'title'=>"  ",'text'=>" ",'school_key'=>Yii::$app->params['school_key'],'created_at'=>$date,'updated_at'=>$date];
-            $data[]=['key'=>"growth-strategies",'title'=>"  ",'text'=>" ",'school_key'=>Yii::$app->params['school_key'],'created_at'=>$date,'updated_at'=>$date];
-            $data[]=['key'=>"rate-us",'title'=>"  ",'text'=>" ",'school_key'=>Yii::$app->params['school_key'],'created_at'=>$date,'updated_at'=>$date];
-            $data[]=['key'=>"our-responsibility",'title'=>"  ",'text'=>" ",'school_key'=>Yii::$app->params['school_key'],'created_at'=>$date,'updated_at'=>$date];
-            $data[]=['key'=>"privacy-policy",'title'=>"  ",'text'=>" ",'school_key'=>Yii::$app->params['school_key'],'created_at'=>$date,'updated_at'=>$date];
-            $data[]=['key'=>"terms-conditions",'title'=>"  ",'text'=>" ",'school_key'=>Yii::$app->params['school_key'],'created_at'=>$date,'updated_at'=>$date];
+            $model=Schools::find()->where(["school_key"=>"jaras"])->andWhere(['key'=>"about"])->one();
+            $data[]=['key'=>"about",'title'=>$model->title,'text'=>$model->text,'school_key'=>Yii::$app->params['school_key'],'created_at'=>$date,'updated_at'=>$date];
+            $model=Schools::find()->where(["school_key"=>"jaras"])->andWhere(['key'=>"our-vision"])->one();
+            $data[]=['key'=>"our-vision",'title'=>$model->title,'text'=>$model->text,'school_key'=>Yii::$app->params['school_key'],'created_at'=>$date,'updated_at'=>$date];
+            $model=Schools::find()->where(["school_key"=>"jaras"])->andWhere(['key'=>"our-message"])->one();
+            $data[]=['key'=>"our-message",'title'=>$model->title,'text'=>$model->text,'school_key'=>Yii::$app->params['school_key'],'created_at'=>$date,'updated_at'=>$date];
+            $model=Schools::find()->where(["school_key"=>"jaras"])->andWhere(['key'=>"our-goals"])->one();
+            $data[]=['key'=>"our-goals",'title'=>$model->title,'text'=>$model->text,'school_key'=>Yii::$app->params['school_key'],'created_at'=>$date,'updated_at'=>$date];
+            $model=Schools::find()->where(["school_key"=>"jaras"])->andWhere(['key'=>"growth-strategies"])->one();
+            $data[]=['key'=>"growth-strategies",'title'=>$model->title,'text'=>$model->text,'school_key'=>Yii::$app->params['school_key'],'created_at'=>$date,'updated_at'=>$date];
+            $model=Schools::find()->where(["school_key"=>"jaras"])->andWhere(['key'=>"rate-us"])->one();
+            $data[]=['key'=>"rate-us",'title'=>$model->title,'text'=>$model->text,'school_key'=>Yii::$app->params['school_key'],'created_at'=>$date,'updated_at'=>$date];
+            $model=Schools::find()->where(["school_key"=>"jaras"])->andWhere(['key'=>"our-responsibility"])->one();
+            $data[]=['key'=>"our-responsibility",'title'=>$model->title,'text'=>$model->text,'school_key'=>Yii::$app->params['school_key'],'created_at'=>$date,'updated_at'=>$date];
+            $model=Schools::find()->where(["school_key"=>"jaras"])->andWhere(['key'=>"privacy-policy"])->one();
+            $data[]=['key'=>"privacy-policy",'title'=>$model->title,'text'=>$model->text,'school_key'=>Yii::$app->params['school_key'],'created_at'=>$date,'updated_at'=>$date];
+            $model=Schools::find()->where(["school_key"=>"jaras"])->andWhere(['key'=>"terms-conditions"])->one();
+            $data[]=['key'=>"terms-conditions",'title'=>$model->title,'text'=>$model->text,'school_key'=>Yii::$app->params['school_key'],'created_at'=>$date,'updated_at'=>$date];
 
             $data2=['school_key' => Yii::$app->params['school_key'],
                     'phone' => " ",
