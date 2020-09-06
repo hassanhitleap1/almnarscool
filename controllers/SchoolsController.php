@@ -141,18 +141,37 @@ class SchoolsController extends BaseController
                     }
                 }
             $date=Carbon::now('Amman/jordan');
-             
-            $data=[
-                'key'=>"",
-                'title'=>"  ",
-                'text'=>" ",
-                'school_key'=>Yii::$app->params['school_key'],
-                'created_at'=>$date,
-                'updated_at'=>$date
+
+            $data[]=['key'=>"about",'title'=>"  ",'text'=>" ",'school_key'=>Yii::$app->params['school_key'],'created_at'=>$date,'updated_at'=>$date];
+            $data[]=['key'=>"our-vision",'title'=>"  ",'text'=>" ",'school_key'=>Yii::$app->params['school_key'],'created_at'=>$date,'updated_at'=>$date];
+            $data[]=['key'=>"our-message",'title'=>"  ",'text'=>" ",'school_key'=>Yii::$app->params['school_key'],'created_at'=>$date,'updated_at'=>$date];
+            $data[]=['key'=>"our-goals",'title'=>"  ",'text'=>" ",'school_key'=>Yii::$app->params['school_key'],'created_at'=>$date,'updated_at'=>$date];
+            $data[]=['key'=>"growth-strategies",'title'=>"  ",'text'=>" ",'school_key'=>Yii::$app->params['school_key'],'created_at'=>$date,'updated_at'=>$date];
+            $data[]=['key'=>"rate-us",'title'=>"  ",'text'=>" ",'school_key'=>Yii::$app->params['school_key'],'created_at'=>$date,'updated_at'=>$date];
+            $data[]=['key'=>"our-responsibility",'title'=>"  ",'text'=>" ",'school_key'=>Yii::$app->params['school_key'],'created_at'=>$date,'updated_at'=>$date];
+            $data[]=['key'=>"privacy-policy",'title'=>"  ",'text'=>" ",'school_key'=>Yii::$app->params['school_key'],'created_at'=>$date,'updated_at'=>$date];
+            $data[]=['key'=>"terms-conditions",'title'=>"  ",'text'=>" ",'school_key'=>Yii::$app->params['school_key'],'created_at'=>$date,'updated_at'=>$date];
+
+            $data2=['school_key' => Yii::$app->params['school_key'],
+                    'phone' => " ",
+                    'email' => "  ",
+                    'facebook' => " ",
+                    'youtube' => "  ",
+                    'twitter' => "  ",
+                    'address' => "  ",
+                    'location' => "  ",
+                    'created_at'=>$date,
+                    'updated_at'=>$date
             ];
+
             Yii::$app->db
                 ->createCommand()
                 ->batchInsert('pages', ['key', 'title', 'text', 'school_key', 'created_at', 'updated_at'], $data)
+                ->execute();
+
+            Yii::$app->db
+                ->createCommand()
+                ->batchInsert('pages', ['connect_us', 'phone', 'email', 'facebook', "youtube","twitter","address","location",'created_at', 'updated_at'], $data2)
                 ->execute();
 
                 $model->save();
