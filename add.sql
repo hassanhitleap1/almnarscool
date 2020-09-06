@@ -138,3 +138,6 @@ ALTER TABLE `connect_us` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `schools` ADD `school_key` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'jaras' AFTER `path_logo`;
 ALTER TABLE `schools` ADD `link` VARCHAR(200) NOT NULL DEFAULT 'http://job-jaras.com/' AFTER `school_key`;
 ALTER TABLE `user` ADD `school_id` INT NOT NULL DEFAULT '1' AFTER `expire_at`;
+ALTER TABLE `schools` ADD `facebook` VARCHAR(250) NOT NULL AFTER `link`, ADD `email` VARCHAR(250) NOT NULL AFTER `facebook`, ADD `youtube` VARCHAR(200) NOT NULL AFTER `email`, ADD `twitter` VARCHAR(250) NOT NULL AFTER `youtube`, ADD `address` VARCHAR(250) NOT NULL AFTER `twitter`, ADD `location` TINYTEXT NOT NULL AFTER `address`;
+
+ALTER TABLE `schools` ADD `phone` VARCHAR(50) NOT NULL AFTER `name`;

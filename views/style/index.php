@@ -13,9 +13,9 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-        <?= $form->field($model, 'js')->widget(Pell::className(), []);?>
+        <?= $form->field($model, 'js')->widget(Pell::className());?>
 
-        <?= $form->field($model, 'style')->widget(Pell::className(), []);?>
+        <?= $form->field($model, 'style')->widget(Pell::className());?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>

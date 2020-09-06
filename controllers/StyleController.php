@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use app\models\ActionAdmin;
 use app\models\ActionAdminSearch;
+use app\models\StyleForm;
 use app\models\User;
 use yii\helpers\FileHelper;
 use yii\web\NotFoundHttpException;
@@ -49,8 +50,10 @@ class StyleController extends BaseController
      */
     public function actionIndex()
     {
-        $model = new StyleForm;
+        $model = new StyleForm();
         if ($model->load(Yii::$app->request->post())) {
+            echo $model->js;
+            exit;
             if ($model->validate()) {
                 $file_path_js = "js/custom.js";
                 $file_path_style="css/custom.css";
