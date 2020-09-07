@@ -66,7 +66,7 @@ class PagesSearch extends Pages
         $query->andFilterWhere(['like', 'key', $this->key])
             ->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'text', $this->text]);
-
+        $query->andWhere(['school_key',Yii::$app->params['school_key']]);
         return $dataProvider;
     }
 }

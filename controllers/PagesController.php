@@ -78,6 +78,7 @@ class PagesController extends Controller
      */
     public function actionCreate()
     {
+        if($model=Pages::find()->where(['schoole_key'=>Yii::$app->params['schoole_key']]) )
         $model = new Pages();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
