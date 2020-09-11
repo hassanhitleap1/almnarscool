@@ -2,11 +2,12 @@
 
 namespace app\controllers;
 
+use app\models\StyleForm;
 use Yii;
 use app\models\ActionAdmin;
 use app\models\ActionAdminSearch;
-use app\models\StyleForm;
 use app\models\User;
+use Exception;
 use yii\helpers\FileHelper;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -50,36 +51,37 @@ class StyleController extends BaseController
      */
     public function actionIndex()
     {
+        $file_path_js = "js/custom.js";
+        $file_path_style="css/custom.css";
+        $filejs= Yii::getAlias("@webroot/$file_path_js");
+        $filecss= Yii::getAlias("@webroot/$file_path_style");
+        $fopenjs='';
+        $fopencss='';
+        try{
+            $fopenjs = file_get_contents($filejs);
+            $fopencss= file_get_contents($filecss);
+        }catch(\Exception $e ){
+            
+        }
+        
         $model = new StyleForm();
         if ($model->load(Yii::$app->request->post())) {
-            echo $model->js;
-            exit;
             if ($model->validate()) {
-                $file_path_js = "js/custom.js";
-                $file_path_style="css/custom.css";
-                $productjson = json_encode($model->js);
-                echo $file= Yii::getAlias('@web/'.$file_path_js);
-                $fp = fopen($file, 'w+');
-                fwrite($fp, $productjson);
-                fclose($fp);
-                $productjson = json_encode($model->style);
-                echo $file= Yii::getAlias('@web/'.$file_path_style);
-                $fp = fopen($file, 'w+');
-                fwrite($fp, $productjson);
-                fclose($fp);
-                
-                
-//                FileHelper::removeDirectory($folder_path);
-//                FileHelper::createDirectory($folder_path, $mode = 0775, $recursive = true);
+                $a = fopen($filejs, 'w');
+                fwrite($a, $model->js);
+                fclose($a);
+//                chmod($filejs, 0755);
+                $a = fopen($filecss, 'w');
+                fwrite($a, $model->style);
+                fclose($a);
+//                chmod($filecss, 0755);
             }
-
-            return $this->render('index', [
-                'model' => $model,
-            ]);
         }
 
         return $this->render('index', [
             'model' => $model,
+            'fopenjs'=>$fopenjs,
+            'fopencss'=>$fopencss
         ]);
     }
 
