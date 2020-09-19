@@ -29,8 +29,8 @@ $pluginOptions = [
 $is_uploaded = false;
 
 if (!$model->isNewRecord) {
-    $path = Yii::getAlias('@webroot') . '/' .  $model->path;
-    $path_web = Yii::getAlias('@web') . '/' .  $model->path;
+    $path =  "../../web/". Yii::getAlias('@webroot') . '/' .  $model->path;
+    $path_web = "../../web/". Yii::getAlias('@web') . '/' .  $model->path;
     if (file_exists($path)) {
 
         $is_uploaded = true;

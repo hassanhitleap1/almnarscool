@@ -12,8 +12,8 @@ $this->title = Yii::t('app', 'Contract');
 $dataDocument = [];
 $is_uploaded = false;
 if (!(Yii::$app->user->identity->contract_path == null || Yii::$app->user->identity->contract_path == '')) {
-    $path = Yii::getAlias('@webroot') . '/' . Yii::$app->user->identity->contract_path;
-    $path_web = Yii::getAlias('@web') . '/' . Yii::$app->user->identity->contract_path;
+    $path = "../../web/". Yii::getAlias('@webroot') . '/' . Yii::$app->user->identity->contract_path;
+    $path_web =  "../../web/". Yii::getAlias('@web') . '/' . Yii::$app->user->identity->contract_path;
     if (file_exists($path)) {
         $is_uploaded = true;
         $dataDocument = [

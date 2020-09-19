@@ -49,11 +49,13 @@ class DocumentsController extends BaseController
             
                 $id = Yii::$app->user->identity->id;
                 $folder_path = "../../web/contracts/$id";
+                $folder_path_jrs="upload_vedio/$id";
                 FileHelper::removeDirectory($folder_path);
                 FileHelper::createDirectory($folder_path, $mode = 0775, $recursive = true);
                 $contract = "$folder_path/contract" . "." . $model->contract->extension;
+                $contract_jsr="$folder_path_jrs/contract" . "." . $model->contract->extension;
                 $model->contract->saveAs($contract);
-                $user->contract_path = $contract;
+                $user->contract_path = $contract_jsr;
                 $user->action_user=RequastJobForm::CONTRACT_WAS_SIGNED;
                 $user->type = User::NORMAL_USER;
                 $user->save(false);
