@@ -55,7 +55,7 @@ class DocumentsController extends BaseController
                 $contract = "$folder_path/contract" . "." . $model->contract->extension;
                 $contract_jsr="$folder_path_jrs/contract" . "." . $model->contract->extension;
                 $model->contract->saveAs($contract);
-                $model->path = $folder_path_jrs;
+                $user->contract_path = $contract_jsr;
                 $user->action_user=RequastJobForm::CONTRACT_WAS_SIGNED;
                 $user->type = User::NORMAL_USER;
                 $user->save(false);

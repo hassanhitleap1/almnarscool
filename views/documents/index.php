@@ -12,8 +12,15 @@ $this->title = Yii::t('app', 'Contract');
 $dataDocument = [];
 $is_uploaded = false;
 if (!(Yii::$app->user->identity->contract_path == null || Yii::$app->user->identity->contract_path == '')) {
-    $path = "../../web/". Yii::getAlias('@webroot') . '/' . Yii::$app->user->identity->contract_path;
-    $path_web =  "../../web/". Yii::getAlias('@web') . '/' . Yii::$app->user->identity->contract_path;
+
+    list($subdomain,$host) = explode('.', $_SERVER["SERVER_NAME"]);
+    
+    $path_web = "http://"."$host.com/web/"  .  Yii::$app->user->identity->contract_path;;
+    $path = getcwd();   
+    $path = substr($path, 0, strpos($path, "public_html"));
+    $path =  $path ."public_html/web/". Yii::$app->user->identity->contract_path;
+
+  
     if (file_exists($path)) {
         $is_uploaded = true;
         $dataDocument = [
