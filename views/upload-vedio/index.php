@@ -16,6 +16,7 @@ $ext=['3g2','3gp','avi','flv','h264','m4v','webm','mkv','mov','mp4','mpg','mpeg'
 /* @var $model app\models\Area */
 /* @var $form yii\widgets\ActiveForm */
 
+
 $pluginOptions = [
     'overwriteInitial' => true,
     'showUpload' => false,
@@ -29,11 +30,13 @@ $pluginOptions = [
 $is_uploaded = false;
 
 if (!$model->isNewRecord) {
-    $path =  "../../web/". Yii::getAlias('@webroot') . '/' .  $model->path;
-    $path_web = "../../web/". Yii::getAlias('@web') . '/' .  $model->path;
-    if (file_exists($path)) {
-
-        $is_uploaded = true;
+   
+ list($subdomain,$host) = explode('.', $_SERVER["SERVER_NAME"]);
+     $path_web = "http://"."$host.com/web/"  .  $model->path;
+    $path = getcwd();   
+    $path = substr($path, 0, strpos($path, "public_html"));
+    $path =  $path ."public_html/web/". $model->path;
+     $is_uploaded = true;
         $pluginOptions = [
             'initialPreview' => $path_web,
             'overwriteInitial' => true,
@@ -45,6 +48,10 @@ if (!$model->isNewRecord) {
                 ['filetype' => "video/mp4"]
             ],
         ];
+
+    if (file_exists($path)) {
+
+      
     }
 }
 ?>

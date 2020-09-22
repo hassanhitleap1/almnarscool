@@ -4,8 +4,10 @@ namespace app\controllers;
 
 use app\models\CountSendSms;
 use app\models\Courses;
+use app\models\Degrees;
 use app\models\EducationalAttainment;
 use app\models\Experiences;
+use app\models\Governorate;
 use app\models\LoginForm;
 use app\models\Model;
 
@@ -44,7 +46,9 @@ class RequatJobController extends \yii\web\Controller
             $modelsEducationalAttainment = Model::createMultiple(EducationalAttainment::classname(),$modelsEducationalAttainment  );
             Model::loadMultiple($modelsEducationalAttainment, Yii::$app->request->post());
             //___________________________________________________________________________
+            $now= Carbon::now("Asia/Amman")->toDateTimeString();
             $model->username =null;
+            $model->expire_at=$now;
             $model->password_hash=Yii::$app->security->generatePasswordHash($model->password);
             $model->status=User::STATUS_ACTIVE;
             $model->expected_salary=0;
@@ -52,7 +56,7 @@ class RequatJobController extends \yii\web\Controller
             $model->name_company='';
             $model->verification_email=1;
             $model->subscribe_date=null;
-            $now= Carbon::now("Asia/Amman")->toDateTimeString();
+           
             // validate all models
             $valid = $model->validate() &&
                 Model::validateMultiple($modelsEducationalAttainment) &&
